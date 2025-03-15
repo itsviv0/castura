@@ -1,6 +1,8 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Video, Menu, X } from "lucide-react";
 
@@ -8,7 +10,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showRecordButton, setShowRecordButton] = useState(false);
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +18,7 @@ export const Navbar = () => {
 
       // Check if hero record button is in view
       const heroButton = document.getElementById("hero-record-button");
-      if (heroButton && router.pathname === "/home") {
+      if (heroButton && pathname === "/home") {
         const rect = heroButton.getBoundingClientRect();
         setShowRecordButton(rect.top < 0);
       }
@@ -24,7 +26,7 @@ export const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [router.pathname]);
+  }, [pathname]);
 
   return (
     <nav
@@ -45,23 +47,33 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/home"
-              className="text-foreground/80 hover:text-foreground"
+              className={`hover:text-foreground ${
+                pathname === "/home" ? "text-foreground" : "text-foreground/80"
+              }`}
             >
               Home
             </Link>
             <Link
               href="/features"
-              className="text-foreground/80 hover:text-foreground"
+              className={`hover:text-foreground ${
+                pathname === "/features"
+                  ? "text-foreground"
+                  : "text-foreground/80"
+              }`}
             >
               Features
             </Link>
             <Link
               href="/pricing"
-              className="text-foreground/80 hover:text-foreground"
+              className={`hover:text-foreground ${
+                pathname === "/pricing"
+                  ? "text-foreground"
+                  : "text-foreground/80"
+              }`}
             >
               Pricing
             </Link>
-            {(showRecordButton || router.pathname !== "/home") && (
+            {(showRecordButton || pathname !== "/home") && (
               <Button
                 asChild
                 className="bg-primary hover:bg-primary/90 animate-fade-in"
@@ -90,21 +102,33 @@ export const Navbar = () => {
             <div className="flex flex-col space-y-4">
               <Link
                 href="/home"
-                className="text-foreground/80 hover:text-foreground px-4 py-2"
+                className={`hover:text-foreground px-4 py-2 ${
+                  pathname === "/home"
+                    ? "text-foreground"
+                    : "text-foreground/80"
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/features"
-                className="text-foreground/80 hover:text-foreground px-4 py-2"
+                className={`hover:text-foreground px-4 py-2 ${
+                  pathname === "/features"
+                    ? "text-foreground"
+                    : "text-foreground/80"
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Features
               </Link>
               <Link
                 href="/pricing"
-                className="text-foreground/80 hover:text-foreground px-4 py-2"
+                className={`hover:text-foreground px-4 py-2 ${
+                  pathname === "/pricing"
+                    ? "text-foreground"
+                    : "text-foreground/80"
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
