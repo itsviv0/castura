@@ -18,7 +18,7 @@ export const Navbar = () => {
 
       // Check if hero record button is in view
       const heroButton = document.getElementById("hero-record-button");
-      if (heroButton && pathname === "/home") {
+      if (heroButton && pathname === "/") {
         const rect = heroButton.getBoundingClientRect();
         setShowRecordButton(rect.top < 0);
       }
@@ -38,7 +38,7 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/home" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <Video className="h-6 w-6 text-primary" />
             <span className="font-bold text-xl">Castura</span>
           </Link>
@@ -46,9 +46,9 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href="/home"
+              href="/"
               className={`hover:text-foreground ${
-                pathname === "/home" ? "text-foreground" : "text-foreground/80"
+                pathname === "/" ? "text-foreground" : "text-foreground/80"
               }`}
             >
               Home
@@ -73,7 +73,7 @@ export const Navbar = () => {
             >
               Pricing
             </Link>
-            {(showRecordButton || pathname !== "/home") && (
+            {(showRecordButton || pathname !== "/") && (
               <Button
                 asChild
                 className="bg-primary hover:bg-primary/90 animate-fade-in"
@@ -101,11 +101,9 @@ export const Navbar = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               <Link
-                href="/home"
+                href="/"
                 className={`hover:text-foreground px-4 py-2 ${
-                  pathname === "/home"
-                    ? "text-foreground"
-                    : "text-foreground/80"
+                  pathname === "/" ? "text-foreground" : "text-foreground/80"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
