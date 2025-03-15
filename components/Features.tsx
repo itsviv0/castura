@@ -1,6 +1,6 @@
 "use client";
 
-import { Video, Monitor, Mic, Download } from "lucide-react";
+import { Video, Monitor, Mic } from "lucide-react";
 
 export const Features = () => {
   const FeatureCard = ({
