@@ -23,8 +23,8 @@ const Providers = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: "Castura | ScreenCast",
-  description: "created by itsviv0",
+  title: "Castura",
+  description: "Freemium stream recording app created by itsviv0",
 };
 
 export default function RootLayout({

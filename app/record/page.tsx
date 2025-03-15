@@ -28,7 +28,7 @@ export default function Record() {
         },
       });
 
-      let streams = [screenStream];
+      const streams = [screenStream];
 
       // Get microphone audio if enabled
       if (audioEnabled) {
