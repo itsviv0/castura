@@ -73,7 +73,7 @@ export const Navbar = () => {
             >
               Pricing
             </Link>
-            {(showRecordButton || pathname !== "/ ") && (
+            {(showRecordButton || pathname !== "/") && (
               <Button
                 asChild
                 className="bg-primary hover:bg-primary/90 animate-fade-in"

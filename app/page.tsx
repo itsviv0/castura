@@ -7,7 +7,7 @@ import { Features } from "@/components/Features";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen dark:bg-background dark:text-foreground">
       {/* Hero Section */}
       <Hero />
 
