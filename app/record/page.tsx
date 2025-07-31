@@ -122,8 +122,8 @@ export default function Record() {
   };
 
   return (
-    <div className="min-h-screen pt-20 px-4 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 animate-gradient-x">
-      <div className="container mx-auto max-w-4xl">
+    <div className="pt-20 px-4 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 animate-gradient-x">
+      <div className="container m-auto max-w-4xl py-12">
         {!showPreview ? (
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent animate-pulse">
